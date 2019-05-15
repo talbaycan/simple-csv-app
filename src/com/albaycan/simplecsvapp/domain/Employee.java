@@ -1,4 +1,4 @@
-package com.albaycan.simplecsvapp;
+package com.albaycan.simplecsvapp.domain;
 
 import java.time.LocalDate;
 
@@ -9,10 +9,9 @@ public class Employee {
 	private String surname;
 	private int age;
 	private String city;
-	private String DOB;
+	private LocalDate DOB;
 	
-	public Employee(int id, String name, String surname, int age, String city, String dOB) {
-		super();
+	public Employee(int id, String name, String surname, int age, String city, LocalDate dOB) {		
 		this.id = id;
 		this.name = name;
 		this.surname = surname;
@@ -61,11 +60,11 @@ public class Employee {
 		this.city = city;
 	}
 
-	public String getDOB() {
+	public LocalDate getDOB() {
 		return DOB;
 	}
 
-	public void setDOB(String dOB) {
+	public void setDOB(LocalDate dOB) {
 		DOB = dOB;
 	}
 	

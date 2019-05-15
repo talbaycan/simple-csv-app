@@ -1,4 +1,4 @@
-package com.albaycan.simplecsvapp;
+package com.albaycan.simplecsvapp.utility;
 
 import java.util.List;
 

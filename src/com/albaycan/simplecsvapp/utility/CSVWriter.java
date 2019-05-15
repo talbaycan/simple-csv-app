@@ -1,10 +1,10 @@
-package com.albaycan.simplecsvapp;
+package com.albaycan.simplecsvapp.utility;
 
 import java.io.IOException;
 import java.util.List;
 
 public interface CSVWriter {
 
-	void writeCSVFile(List<CSVRow> csvRows) throws Exception;
+	void writeCSVFile(List<CSVRow> csvRows);
 	
 }
