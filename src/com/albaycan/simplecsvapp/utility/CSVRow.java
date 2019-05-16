@@ -5,7 +5,12 @@ import java.util.List;
 
 public class CSVRow {
 
-	List<String> records = new ArrayList<String>();
+	List<String> records;
+	
+	public CSVRow()
+	{
+		records = new ArrayList<String>();
+	}
 	
 	public void addRecord(String record) {
 		records.add(record);
@@ -14,7 +19,7 @@ public class CSVRow {
 	
 	void addRecords(List<String> records) {
 	
-		records.addAll(records);
+		this.records.addAll(records);
 	
 	}
 	
@@ -24,6 +29,7 @@ public class CSVRow {
 		return records;		
 	}	
 	
+	@Override
 	public String toString() {
 		
 		return null;

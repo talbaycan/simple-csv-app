@@ -28,8 +28,7 @@ public class CSVReaderImp implements CSVReader {
 			try {
 				
 				String line = "";
-				csvReader = new BufferedReader(new FileReader(filepath));
-				csvReader.readLine();
+				csvReader = new BufferedReader(new FileReader(filepath));				
 				
 				while ((line = csvReader.readLine()) != null) {  
 				    String[] fields = line.split(",");
@@ -38,6 +37,7 @@ public class CSVReaderImp implements CSVReader {
 				    CSVRow csvRow = new CSVRow();				    
 				    	    	    
 				    csvRow.addRecords(records);
+				    csvRows.add(csvRow);
 				} 
 				
 			} catch (Exception ex) {

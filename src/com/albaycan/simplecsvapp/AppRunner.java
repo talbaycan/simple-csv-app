@@ -26,7 +26,8 @@ public class AppRunner {
 		input.nextLine();
 		
 		//If Write to CSV choosen
-		CSVWriter csvWriter = new CSVWriterImp("C:\\Users\\talba\\OneDrive\\Documents\\Projects\\simple-csv-app\\employees.csv");
+		String filePath = "C:\\Users\\talba\\OneDrive\\Documents\\Projects\\simple-csv-app\\employees.csv";
+		CSVWriter csvWriter = new CSVWriterImp(filePath);
 		List<Employee> employees =new ArrayList<Employee>();
 		
 		Employee employee1 = new Employee(101, "Emma", "Andrews", 35, "Cornwall", LocalDate.of(1984, 04, 13));
@@ -74,14 +75,14 @@ public class AppRunner {
 		
 		
 		//If Read from CSV choosen
-		CSVReader csvReader = new CSVReaderImp("C:\\Users\\talba\\OneDrive\\Documents\\Projects\\simple-csv-app\\employees.csv");
+		CSVReader csvReader = new CSVReaderImp(filePath);
 		
 		List<CSVRow> readCSVRows = null;
 		
-		if(csvReader.readCSVRows().size()!=0) {
-			readCSVRows = csvReader.readCSVRows();
-		} else {
+		if(csvReader.readCSVRows().size()==0) {
 			System.out.println("No File Found");
+		} else {
+			readCSVRows = csvReader.readCSVRows();
 		}				
 
 		List<Employee> readEmployees =new ArrayList<Employee>();
@@ -92,7 +93,7 @@ public class AppRunner {
 
 			records = readCSVRow.getRecords();			
 			
-			Employee employee = null;
+			Employee employee = new Employee();
 			
 			employee.setId(Integer.parseInt(records.get(0)));
 			employee.setName(records.get(1));
@@ -105,14 +106,14 @@ public class AppRunner {
 			
 		}
 		
-		String leftAlignFormat = "%-11d | %-9s |  %-20s  | %-9s   | %-14s  | %-12s   |%n";
+		String leftAlignFormat = "%-5d | %-9s |  %-10s  | %-4s | %-11s  | %-9s   |%n";
 
 		System.out.format(
-				"------------|-----------|---------------|--------|--------------|------------|%n");
+				"------|-----------|--------------|------|--------------|--------------|%n");
 		System.out.format(
-				" Id         | Name      | Surname       | Age    | City         | DOB        |%n");
+				" Id   | Name      | Surname      | Age  | City         | DOB          |%n");
 		System.out.format(
-				"------------|-----------|---------------|--------|--------------|------------|%n");
+				"------|-----------|--------------|------|--------------|--------------|%n");
 
 		for (Employee readEmployee : readEmployees) {
 			System.out.format(leftAlignFormat, readEmployee.getId(), readEmployee.getName(), readEmployee.getSurname(), readEmployee.getAge(), 
